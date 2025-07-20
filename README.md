@@ -21,13 +21,13 @@
 typedef struct Processo {
     int pid;
     char nome[50];
-    int prioridade;  // 0: Alta, 1: Média, 2: Baixa
-    int estado;      // 0: Pronto, 1: Executando, 2: Finalizado
+    int prioridade;  // 1: Alta, 2: Média, 3: Baixa
+    char estado[20];      
     int chamadas_pilha;
     struct Processo* prox;
 } Processo;
 ╔════════════════════════════╗
-║   Simulador de S.O. - C   ║
+║   Simulador de S.O. - C    ║
 ╠════════════════════════════╣
 ║ [1] Criar novo processo    ║
 ║ [2] Executar processo      ║
