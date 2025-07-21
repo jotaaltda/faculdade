@@ -75,16 +75,30 @@ int main() {
                 fgets(processo.nome,sizeof(processo.nome),stdin);
                 processo.nome[strcspn(processo.nome, "\n")] = '\0';
 
-                do {
-                    printf("\t\e[1;91mPrioridade (1: Alta) (2: Media) (3: Baixa):\x1b[0m ");
-                    scanf("%d", &processo.prioridade);
-                    getchar(); // Limpa o buffer do scanf,
+               do {
+                printf("\t\e[1;91mPrioridade (1: Alta) (2: Média) (3: Baixa):\x1b[0m ");
+    
+                if (scanf("%d", &processo.prioridade) != 1) {
+                    printf("\t\e[1;91mDigite um valor numérico válido (1, 2 ou 3).\x1b[0m\n");
+                    // Limpador de buffer para evitar estouroo "KABOOM".
+                    while (getchar() != '\n');
+                    continue;
+                }
+
+                while (getchar() != '\n');
+
+                if (processo.prioridade < 1 || processo.prioridade > 3) {
+                    printf("\t\e[1;91mOpção inválida! Escolha entre 1, 2 ou 3.\x1b[0m\n");
+                }
+
                 } while (processo.prioridade < 1 || processo.prioridade > 3);
 
                 printf("\t\e[1;91mNumero de Chamadas desejadas:\x1b[0m ");
-                scanf("%d",&processo.num_chamadas);
-                getchar(); // Limpador de buffer portátil.
-
+                if(scanf("%d",&processo.num_chamadas)!=1){
+                    printf("\t\e[1;91mDigite um valor númerico\x1b[0m);
+                    while(getchar() != '\n'); // Limpador de buffer portátil.
+                    break;
+                }
                 strcpy(processo.estado, "Pronto");
                 criar_pilha(&processo.pilha_funcoes);
                 enfileirar(fila,processo);
