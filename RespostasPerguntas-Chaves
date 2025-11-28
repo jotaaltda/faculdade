@@ -1,0 +1,34 @@
+1. O loop principal (o for each) precisou ser alterado para fazer a YWing se mover e atirar? Por que não?
+
+R: Não precisou, pois o Java sabe automaticamente quais métodos chamar pela ordem da lista
+
+--------------------------------------------------------------------------------------------------------------------
+
+2. "Por que foi melhor adicionar escudos na NaveEspacial (classe mãe) em vez de adicionar separadamente na XWing e na YWing?"
+
+R: Facilidade, dessa forma eu universalizo os escudos, que existirão em qualquer nave que eu criar
+
+--------------------------------------------------------------------------------------------------------------------
+
+3. "Por que usamos uma Interface (IHiperdrive) e não um Método Abstrato (saltarParaHiperespaco) na classe NaveEspacial?"
+
+R. Porque nem toda nave tem hipersalto, se usassemos na classe mãe forçariamos todas as naves a ter
+
+--------------------------------------------------------------------------------------------------------------------
+
+4. "Por que a XWing compôs um DroideAstromech (tem-um) em vez de herdar dele (é-um)?"
+
+R. Por que ela tem um droide, ela NÃO É um droide
+
+--------------------------------------------------------------------------------------------------------------------
+
+5. "Como o compilador sabe qual construtor do TIEFighter chamar, já que ambos têm o mesmo nome?"
+
+R. Ele diferencia pelos parametros, apenas o nome e nome + energia
+
+--------------------------------------------------------------------------------------------------------------------
+
+BÔNUS. "Por que acessamos NaveEspacial.getTotalNavesCriadas() (pela classe) e não luke.getTotalNavesCriadas() (por um objeto)?"
+
+R .Acessamos pela classe porque o total de naves é uma informação compartilhada, e não uma característica individual
+
