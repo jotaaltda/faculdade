@@ -6,15 +6,24 @@
 
 <body>
 
-    <form name="Cadastro" method="get" action="script.js">
+    <form name="Cadastro" method="post" action="script.js">
 
-        <label id="Nome" for="Nome"> Usuário: </label>
-        <input type="text" name="Nome"> <br><br>
+        <fieldset>
+            <legend> Dados Pessoais: </legend>
+            <label id="Nome" for="Nome"> Usuário: </label>
+            <input type="text" name="Nome"> <br><br>
 
-        <label id="Senha" for="Senha"> Senha: </label>
-        <input type="password" name="Senha" maxlength="8"> <br><br>
+            <label id="Senha" for="Senha"> Senha: </label>
+            <input type="password" name="Senha" maxlength="8"> <br><br>
+
+        </fieldset>
+
+        <input type="submit" name="Cadastrar" value="Cadastrar">
+
+        <input type="reset" name="Limpar" value="Limpar">
 
     </form>
+    </table>
 
 </body>
 
