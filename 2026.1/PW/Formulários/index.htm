@@ -5,42 +5,84 @@
 </head>
 
 <body>
-
     <form name="Cadastro" method="post" action="script.js" autocomplete="on">
 
         <fieldset style="background-color: aquamarine">
             <legend> Dados Pessoais: </legend>
-            <label id="Nome" for="Nome"> Usuário: </label>
-            <input type="text" name="Nome"> <br><br>
 
-            <label id="Senha" for="Senha"> Senha: </label>
-            <input type="password" name="Senha" maxlength="8"> <br><br>
+            <table>
+                <tr>
+                    <td align="right"> <label id="Nome" for="Nome"> Usuário: </label> </td>
+                    <td> <input type="text" name="Nome"> </td>
+                </tr>
 
-            <label id="Idade" for="Idade"> Idade: </label>
-            <input type="number" name="Idade" maxlength="8" min="18" max="65"> <br><br>
+                <tr>
+                    <td align="right"> <label id="Senha" for="Senha"> Senha: </label> </td>
+                    <td> <input type="password" name="Senha" maxlength="8"> </td>
+                </tr>
 
-            <label id="Intervalo" for="Intervalo"> Tempo em meses para contrato: </label>
-            <input type="number" name="Intervalo" min="6" max="36" step="6"> <br>
+                <tr>
+                    <td align="right"> <label id="Idade" for="Idade"> Idade: </label> </td>
+                    <td> <input type="number" name="Idade" maxlength="8" min="18" max="65"> </td>
+                </tr>
 
+                <tr>
+                    <td align="right"> <label id="Intervalo" for="Intervalo"> Tempo em meses para contrato: </label>
+                    </td>
+                    <td> <input type="number" name="Intervalo" min="6" max="36" step="6"> </td>
+                </tr>
+
+            </table>
         </fieldset>
 
-        <input type="submit" name="Cadastrar" value="Cadastrar">
+        <fieldset>
+            <legend> Inputs de conteúdos abertos! </legend>
 
-        <input type="reset" name="Limpar" value="Limpar"> <br>
+            <table>
+                <tr>
+                    <td align="right"><label id="email" for="email"> E-mail: </label></td>
+                    <td> <input type="email" name="email" size="100"></td>
+                </tr>
 
-        <fieldset> 
-            
-            <legend> Outros inputs de conteúdos abertos! </legend>
-
-            <label id="email" for="email"> E-mail: </label>
-            <input type="email" name="email" size="100"> <br>
-
-
+                <tr>
+                    <td align="right"><label id="url" for="email"> Site: </label></td>
+                    <td><input type="url" name="url" size="100"></td>
+                </tr>
+            </table>
         </fieldset>
+
+        <fieldset>
+            <legend> Inputs de conteúdos restritos! </legend>
+
+            <label id="ComboBox" for="cidades"> Cidade: </label>
+            <select name="cidades">
+                <option value=""> Selecione </option>
+                <option value="Div"> Divinópolis </option>
+                <option value="BH"> Belo Horizonte </option>
+                <option value="CC"> Carmo do Cajuru </option>
+            </select> <br><br>
+
+            <label id="ComboBox" for="cidades2"> Cidade: </label>
+            <select name="cidades2" multiple>
+                <option value=""> Selecione </option>
+                <option value="Div"> Divinópolis </option>
+                <option value="BH"> Belo Horizonte </option>
+                <option value="CC"> Carmo do Cajuru </option>
+            </select> <br><br>
+
+            <label id="Calcado" for="Calcado"> Calçado favorito: </label>
+            <input type="radio" name="Calcado" value="S"> Sapato
+            <input type="radio" name="Calcado" value="C"> Chinelo
+            <input type="radio" name="Calcado" value="T"> Tênis <br>
+
+        </fieldset> <br>
+
+        <center>
+            <input type="submit" name="Cadastrar" value="Cadastrar">
+            <input type="reset" name="Limpar" value="Limpar"> <br>
+        </center>
 
     </form>
-    </table>
-
 </body>
 
 </html>
