@@ -7,7 +7,7 @@
 <body>
     <form name="Cadastro" method="post" action="script.js" autocomplete="on">
 
-        <fieldset style="background-color: aquamarine">
+        <fieldset style="background-color: aquamarine" >
             <legend> Dados Pessoais: </legend>
 
             <table>
@@ -35,46 +35,79 @@
             </table>
         </fieldset>
 
-        <fieldset>
+        <fieldset style="background-color: aquamarine">
             <legend> Inputs de conteúdos abertos! </legend>
 
             <table>
                 <tr>
-                    <td align="right"><label id="email" for="email"> E-mail: </label></td>
-                    <td> <input type="email" name="email" size="100"></td>
+                    <td align="right"> <label id="email" for="email"> E-mail: </label> </td>
+                    <td> <input type="email" name="email" size="100"> </td>
                 </tr>
 
                 <tr>
-                    <td align="right"><label id="url" for="email"> Site: </label></td>
-                    <td><input type="url" name="url" size="100"></td>
+                    <td align="right"> <label id="url" for="email"> Site: </label> </td>
+                    <td> <input type="url" name="url" size="100"> </td>
                 </tr>
+
+                <td align="center"> <label id="resumo" for="resumo"> Escreva sobre você: </label> </td>
+                <td> <textarea name="resumo" cols="100" rows="10"> </textarea> </td>
+
             </table>
         </fieldset>
 
-        <fieldset>
+        <fieldset style="background-color: aquamarine">
             <legend> Inputs de conteúdos restritos! </legend>
 
-            <label id="ComboBox" for="cidades"> Cidade: </label>
-            <select name="cidades">
-                <option value=""> Selecione </option>
-                <option value="Div"> Divinópolis </option>
-                <option value="BH"> Belo Horizonte </option>
-                <option value="CC"> Carmo do Cajuru </option>
-            </select> <br><br>
+            <table>
+                <tr>
+                    <td align="right"> <label id="ComboBox" for="cidades"> Cidade: </label> </td>
+                    <td>
+                        <select name="cidades">
+                            <option value=""> Selecione </option>
+                            <option value="Div"> Divinópolis </option>
+                            <option value="BH"> Belo Horizonte </option>
+                            <option value="CC"> Carmo do Cajuru </option>
+                        </select>
+                    </td>
+                </tr>
 
-            <label id="ComboBox" for="cidades2"> Cidade: </label>
-            <select name="cidades2" multiple>
-                <option value=""> Selecione </option>
-                <option value="Div"> Divinópolis </option>
-                <option value="BH"> Belo Horizonte </option>
-                <option value="CC"> Carmo do Cajuru </option>
-            </select> <br><br>
+                <tr>
+                    <td align="right"> <label id="ComboBox" for="cidades2"> Cidade: </label> </td>
+                    <td>
+                        <select name="cidades2" multiple>
+                            <option value=""> Selecione </option>
+                            <option value="Div"> Divinópolis </option>
+                            <option value="BH"> Belo Horizonte </option>
+                            <option value="CC"> Carmo do Cajuru </option>
+                        </select>
+                    </td>
+                </tr>
 
-            <label id="Calcado" for="Calcado"> Calçado favorito: </label>
-            <input type="radio" name="Calcado" value="S"> Sapato
-            <input type="radio" name="Calcado" value="C"> Chinelo
-            <input type="radio" name="Calcado" value="T"> Tênis <br>
+                <tr>
+                    <td align="right"> <label id="Calcado" for="Calcado"> Calçado favorito: </label> </td>
+                    <td>
+                        <input type="radio" name="Calcado" value="S"> Sapato
+                        <input type="radio" name="Calcado" value="C"> Chinelo
+                        <input type="radio" name="Calcado" value="T"> Tênis
+                    </td>
+                </tr>
 
+                <tr>
+                    <td align="right"> <label id="midia" for="midia"> Como nos conheceu? </label> </td>
+                    <td>
+                        <input type="checkbox" name="midia" value="T"> Televisão <br>
+                        <input type="checkbox" name="midia" value="I"> Internet <br>
+                        <input type="checkbox" name="midia" value="R"> Midias Sociais
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td align="right"> <label id="rangeidade" name="rangeidade"> Idade: </label> </td>
+                    <td> <input type="range" name="rangeidade" min="18" max="65"> </td>
+                </tr>
+
+            </table>
         </fieldset> <br>
 
         <center>
