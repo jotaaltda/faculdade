@@ -102,7 +102,6 @@
                 </tr>
 
                 <tr>
-
                     <td align="right"> <label id="rangeidade" name="rangeidade"> Idade: </label> </td>
                     <td> <input type="range" name="rangeidade" min="18" max="65"> </td>
                 </tr>
@@ -114,15 +113,67 @@
             <legend>Datas e horas!</legend>
             <table>
 
-<tr>
-<td align="right"> <label id="data" for="data"> Nascimento: </label> </td>
-<td align="right"> <input type="date" name="data"> </td>
+                <tr>
+                    <td align="right"> <label id="data" for="data"> Nascimento: </label> </td>
+                    <td> <input type="date" name="data" max="2008-04-01" min="1980-04-01"> </td>
+                </tr>
 
+                <tr>
+                    <td align="right"> <label id="horario" for="horario"> Horário: </label> </td>
+                    <td> <input type="time" name="horario" max="22:59:59" min="08:00:00"> </td>
+                </tr>
 
-</tr>
+                <tr>
+                    <td align="right"> <label id="dataehora" for="dataehora"> Data e hora: </label> </td>
+                    <td> <input type="datetime-local" name="dataehora"> </td>
+                </tr>
 
             </table>
         </fieldset> <br>
+
+        <fieldset style="background-color: aquamarine">
+            <legend> Miscelânia! </legend>
+
+            <table>
+
+                <tr>
+                    <td align="right"> <label id="cor" for="cor"> Cor: </label> </td>
+                    <td> <input type="color" name="cor"> </td>
+                </tr>
+
+                <tr>
+                    <td align="right"> <label id="arquivo" for="arquivo"> Arquivo: </label> </td>
+                    <td> <input type="file" name="arquivo"> </td>
+                </tr>
+
+                <tr>
+                    <td align="right"> <label id="botaoimagem" for="botaoimagem"> Clique aqui: </label> </td>
+                    <td> <input type="image" src="../Assets/Images/figura3.jpg" alt="enviar" width="300" height="50">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="right"> <label id="botao" for="botao"> Clique aqui também: </label> </td>
+                    <td> <button type="submit"> <img src="../Assets/Images/figura2.jpg" alt="enviar" width="285"
+                                height="50"> </button> </td>
+                </tr>
+
+                <tr>
+                    <td align="right"> <label id="browsers" for="browsers"> Navegador: </label> </td>
+                    <td>
+                        <input list="browsers">
+                        <datalist id="browsers">
+                            <option value="Firefox">
+                            <option value="Chrome">
+                            <option value="Opera GX">
+                            <option value="Brave">
+                            <option value="Edge">
+                        </datalist>
+                    </td>
+                </tr>
+
+            </table>
+        </fieldset>
 
         <center>
             <input type="submit" name="Cadastrar" value="Cadastrar">
