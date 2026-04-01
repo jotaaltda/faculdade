@@ -33,7 +33,9 @@ int main()
             printf("%c", caractere);
         }
 
-    } while (caractere != EOF);
+        } while (caractere != EOF);
+
+    printf("\n");
 
     fclose(arquivo);
 
