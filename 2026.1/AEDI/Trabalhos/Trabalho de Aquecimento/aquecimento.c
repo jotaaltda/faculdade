@@ -5,7 +5,9 @@
 
 // Variáveis globais e protótipos ===========================================================================
 
-FILE *arquivo;
+FILE *arquivoinput;
+FILE *arquivooutput;
+
 int caractere;
 
 // Função main ==============================================================================================
@@ -13,31 +15,39 @@ int caractere;
 int main()
 {
 
-    arquivo = fopen("input.dat", "r");
+    arquivoinput = fopen("input.dat", "r");
+    arquivooutput = fopen("output.dat", "w");
 
-    if (arquivo == NULL)
+    if (arquivoinput == NULL)
     {
 
-        printf("Arquivo não encontrado!");
+        printf("Arquivo input não encontrado!");
+        exit(1);
+    }
+    else if (arquivooutput == NULL)
+    {
+
+        printf("Arquivo output não encontrado!");
         exit(1);
     }
 
     do
     {
 
-        caractere = fgetc(arquivo);
+        caractere = fgetc(arquivoinput);
 
         if (caractere != EOF)
         {
 
-            printf("%c", caractere);
+            fprintf(arquivooutput, "%c", caractere);
         }
 
-        } while (caractere != EOF);
+    } while (caractere != EOF);
 
     printf("\n");
 
-    fclose(arquivo);
+    fclose(arquivoinput);
+    fclose(arquivooutput);
 
     return 0;
 }
