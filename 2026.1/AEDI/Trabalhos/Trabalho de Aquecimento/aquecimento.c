@@ -127,7 +127,7 @@ int main()
         float filhoA = populacao[melhor1][0];
         float filhoB = populacao[melhor2][1];
 
-        float delta = -1.0 + 2.0 * ((float)rand() / RAND_MAX);
+        float delta = -5.0 + 10.0 * ((float)rand() / RAND_MAX);
 
         if (rand() % 2 == 0)
         {
