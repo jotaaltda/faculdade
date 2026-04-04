@@ -88,7 +88,7 @@ int main()
     for (int i = 0; i < m; i++)
     {
         float erro = calcularerro(populacao[i][0], populacao[i][1], n, pontos);
-        fitness[i] = 1.0 / (erro + 0.0001); // transforma MSE em fitness
+        fitness[i] = 1.0 / (erro + 0.0001); 
     }
 
     for (int gen = 0; gen < G; gen++)
