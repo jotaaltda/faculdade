@@ -153,11 +153,11 @@ int main()
             pai1 = rand() % metade;
             pai2 = rand() % metade;
 
-            filho1 = (populacao[melhores[pai1]][0] + populacao[melhores[pai2]][0]) / 2;
-            filho2 = (populacao[melhores[pai1]][1] + populacao[melhores[pai2]][1]) / 2;
+            filho1 = populacao[melhores[pai1]][0] + ((populacao[melhores[pai2]][0] - populacao[melhores[pai1]][0]) * ((float)rand() / RAND_MAX));
+            filho2 = populacao[melhores[pai1]][1] + ((populacao[melhores[pai2]][1] - populacao[melhores[pai1]][1]) * ((float)rand() / RAND_MAX));
 
-            deltaA = -0.5 + ((float)rand() / RAND_MAX);
-            deltaB = -0.5 + ((float)rand() / RAND_MAX);
+            deltaA = -1.0 + 2.0 * ((float)rand() / RAND_MAX);
+            deltaB = -1.0 + 2.0 * ((float)rand() / RAND_MAX);
 
             filho1 += deltaA;
             filho2 += deltaB;
