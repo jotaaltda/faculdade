@@ -13,6 +13,7 @@ FILE *arquivoinput;
 FILE *arquivooutput;
 
 int n, m, G;
+float x, y;
 
 float pontos[MAX][2];
 
@@ -40,6 +41,25 @@ int main()
     srand(311003);
 
     fscanf(arquivoinput, "%d %d %d", &n, &m, &G);
+
+    if (n > MAX)
+    {
+
+        fprintf(arquivooutput, "Digite um n menor que 1000!");
+        exit(1);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+
+        x = (float)rand() / RAND_MAX;
+        y = (float)rand() / RAND_MAX;
+
+        pontos[i][0] = x;
+        pontos[i][1] = y;
+
+        printf("%f %f\n", pontos[i][0], pontos[i][1]);
+    }
 
     fclose(arquivoinput);
     fclose(arquivooutput);
