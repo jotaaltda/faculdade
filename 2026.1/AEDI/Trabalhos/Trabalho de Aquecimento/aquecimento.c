@@ -3,12 +3,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Defines ==================================================================================================
+
+#define MAX 1000
+
 // Variáveis globais e protótipos ===========================================================================
 
 FILE *arquivoinput;
 FILE *arquivooutput;
 
 int n, m, G;
+
+float pontos[MAX][2];
 
 // Função main ==============================================================================================
 
@@ -30,6 +36,8 @@ int main()
         printf("Arquivo output não encontrado!");
         exit(1);
     }
+
+    srand(311003);
 
     fscanf(arquivoinput, "%d %d %d", &n, &m, &G);
 
