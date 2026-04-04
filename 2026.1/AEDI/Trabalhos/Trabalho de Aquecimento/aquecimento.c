@@ -8,8 +8,7 @@
 FILE *arquivoinput;
 FILE *arquivooutput;
 
-int caractere;
-int x, y, z;
+int n, m, G;
 
 // Função main ==============================================================================================
 
@@ -32,10 +31,7 @@ int main()
         exit(1);
     }
 
-    fscanf(arquivoinput, "%d %d %d", &x, &y, &z);
-    fprintf(arquivooutput, "O 1° valor é %d, o 2° é %d e o 3° é %d!", x, y, z);
-
-    printf("\nTexto impresso com sucesso em output.dat!\n");
+    fscanf(arquivoinput, "%d %d %d", &n, &m, &G);
 
     fclose(arquivoinput);
     fclose(arquivooutput);
