@@ -65,8 +65,6 @@ int main()
         exit(1);
     }
 
-    printf("\nPontos ================================\n\n");
-
     for (int i = 0; i < n; i++)
     {
 
@@ -75,11 +73,7 @@ int main()
 
         pontos[i][0] = x;
         pontos[i][1] = y;
-
-        printf("%.03f %.03f\n", pontos[i][0], pontos[i][1]);
     }
-
-    printf("\nPopulacao ================================\n\n");
 
     for (int j = 0; j < m; j++)
     {
@@ -89,20 +83,13 @@ int main()
 
         populacao[j][0] = a;
         populacao[j][1] = b;
-
-        printf("Individuo %d: (%.03f, %.03f)\n", j + 1, populacao[j][0], populacao[j][1]);
     }
-
-    printf("\nFitness ================================\n\n");
 
     for (int i = 0; i < m; i++)
     {
         float erro = calcularerro(populacao[i][0], populacao[i][1], n, pontos);
         fitness[i] = 1.0 / (erro + 0.0001); // transforma MSE em fitness
-        printf("Individuo %d: Fitness = %.4f\n", i + 1, fitness[i]);
     }
-
-    printf("\nEvolução ================================\n\n");
 
     for (int gen = 0; gen < G; gen++)
     {
