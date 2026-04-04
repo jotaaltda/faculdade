@@ -14,6 +14,7 @@ FILE *arquivoinput;
 FILE *arquivooutput;
 
 int n, m, G;
+int metade, melhor, melhorfit, escolhido;
 
 float x, y;
 float a, b;
@@ -22,6 +23,8 @@ float pontos[MAXPONTOS][2];
 float populacao[MAXPOPULACAO][2];
 
 float fitness[MAXPOPULACAO];
+
+int melhores[MAXPOPULACAO];
 
 float calcularerro(float a, float b, int n, float pontos[][2]);
 
@@ -49,6 +52,8 @@ int main()
     srand(311003);
 
     fscanf(arquivoinput, "%d %d %d", &n, &m, &G);
+
+    metade = m / 2;
 
     if (n > MAXPONTOS)
     {
@@ -98,6 +103,45 @@ int main()
         float erro = calcularerro(populacao[i][0], populacao[i][1], n, pontos);
         fitness[i] = 1.0 / (erro + 0.0001); // transforma MSE em fitness
         printf("Individuo %d: Fitness = %.4f\n", i + 1, fitness[i]);
+    }
+
+    printf("\nEvolução ================================\n\n");
+
+    for (int gen = 0; gen < G; gen++)
+    {
+
+        for (int i = 0; i < metade; i++)
+        {
+            melhor = -1;
+            melhorfit = -1;
+
+            for (int j = 0; j < m; j++)
+            {
+                escolhido = 0;
+                for (int l = 0; l < i; l++)
+                {
+                    if (melhores[l] == j)
+                    {
+                        escolhido = 1;
+                        break;
+                    }
+                }
+                if (!escolhido && fitness[j] > melhorfit)
+                {
+                    melhorfit = fitness[j];
+                    melhor = j;
+                }
+            }
+            melhores[i] = melhor;
+        }
+
+        printf("\nMelhores da geração %d:\n", gen + 1);
+
+        for (int i = 0; i < metade; i++)
+        {
+            int idx = melhores[i];
+            printf("Individuo %d: Fitness = %.4f\n", idx + 1, fitness[idx]);
+        }
     }
 
     fclose(arquivoinput);
