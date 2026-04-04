@@ -91,6 +91,15 @@ int main()
         printf("Individuo %d: (%.03f, %.03f)\n", j + 1, populacao[j][0], populacao[j][1]);
     }
 
+    printf("\nFitness ================================\n\n");
+
+    for (int i = 0; i < m; i++)
+    {
+        float erro = calcularerro(populacao[i][0], populacao[i][1], n, pontos);
+        fitness[i] = 1.0 / (erro + 0.0001); // transforma MSE em fitness
+        printf("Individuo %d: Fitness = %.4f\n", i + 1, fitness[i]);
+    }
+
     fclose(arquivoinput);
     fclose(arquivooutput);
 
