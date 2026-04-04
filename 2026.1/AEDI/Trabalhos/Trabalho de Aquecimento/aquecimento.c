@@ -14,13 +14,15 @@ FILE *arquivoinput;
 FILE *arquivooutput;
 
 int n, m, G;
-int metade, melhor, melhorfit, escolhido;
+int melhor1 = -1, melhor2 = -1, pior = 0;
 int pai1, pai2;
 
 float x, y;
 float a, b;
 float filho1, filho2;
 float deltaA, deltaB;
+float melhorfit1 = -1.0, melhorfit2 = -1.0, piorfit = 1e18;
+float melhor, melhorfit, melhorerro;
 
 float pontos[MAXPONTOS][2];
 float populacao[MAXPOPULACAO][2];
@@ -55,8 +57,6 @@ int main()
     srand(311003);
 
     fscanf(arquivoinput, "%d %d %d", &n, &m, &G);
-
-    metade = m / 2;
 
     if (n > MAXPONTOS)
     {
@@ -113,63 +113,63 @@ int main()
     for (int gen = 0; gen < G; gen++)
     {
 
-        for (int i = 0; i < metade; i++)
+        for (int j = 0; j < m; j++)
         {
-            melhor = -1;
-            melhorfit = -1;
 
-            for (int j = 0; j < m; j++)
+            if (fitness[j] > melhorfit1)
             {
-                escolhido = 0;
-
-                for (int l = 0; l < i; l++)
-                {
-                    if (melhores[l] == j)
-                    {
-                        escolhido = 1;
-                        break;
-                    }
-                }
-
-                if (!escolhido && fitness[j] > melhorfit)
-                {
-                    melhorfit = fitness[j];
-                    melhor = j;
-                }
+                melhorfit2 = melhorfit1;
+                melhor2 = melhor1;
+                melhor1 = fitness[j];
+                melhor1 = j;
             }
-            melhores[i] = melhor;
+            else if (fitness[j] > melhorfit2)
+            {
+                melhorfit2 = fitness[j];
+                melhor1 = j;
+            }
+
+            if (fitness[j] < piorfit)
+            {
+                piorfit = fitness[j];
+                pior = j;
+            }
         }
 
-        printf("\nMelhores da geração %d:\n", gen + 1);
-        for (int i = 0; i < metade; i++)
+        float filhoA = populacao[melhor1][0];
+        float filhoB = populacao[melhor2][1];
+
+        float delta = -1.0 + 2.0 * ((float)rand() / RAND_MAX);
+
+        if (rand() % 2 == 0)
         {
-            int individuo = melhores[i];
-            printf("Individuo %d: Fitness = %f\n", individuo + 1, fitness[individuo]);
+            filhoA += delta;
         }
-
-        for (int i = 0; i < metade; i++)
+        else
         {
-
-            pai1 = rand() % metade;
-            pai2 = rand() % metade;
-
-            filho1 = populacao[melhores[pai1]][0] + ((populacao[melhores[pai2]][0] - populacao[melhores[pai1]][0]) * ((float)rand() / RAND_MAX));
-            filho2 = populacao[melhores[pai1]][1] + ((populacao[melhores[pai2]][1] - populacao[melhores[pai1]][1]) * ((float)rand() / RAND_MAX));
-
-            deltaA = -1.0 + 2.0 * ((float)rand() / RAND_MAX);
-            deltaB = -1.0 + 2.0 * ((float)rand() / RAND_MAX);
-
-            filho1 += deltaA;
-            filho2 += deltaB;
-
-            populacao[metade + i][0] = filho1;
-            populacao[metade + i][1] = filho2;
+            filhoB += delta;
         }
 
-        for (int i = 0; i < m; i++)
+        populacao[pior][0] = filhoA;
+        populacao[pior][1] = filhoB;
+
+        fitness[pior] = 1.0 / (calcularerro(populacao[pior][0], populacao[pior][1], n, pontos) + 0.0001);
+
+        melhor = melhor1;
+        melhorfit = melhorfit1;
+
+        if (fitness[pior] > melhorfit)
         {
-            fitness[i] = 1.0 / (calcularerro(populacao[i][0], populacao[i][1], n, pontos) + 0.0001);
+            melhor = pior;
+            melhorfit = fitness[pior];
         }
+
+        melhorerro = calcularerro(populacao[melhor][0], populacao[melhor][1], n, pontos);
+
+        fprintf(arquivooutput, "Geração %d:\n", gen + 1);
+        fprintf(arquivooutput, "Fitness: %f\n", melhorfit);
+        fprintf(arquivooutput, "Erro: %f\n", melhorerro);
+        fprintf(arquivooutput, "a: %f, b: %f\n\n", populacao[melhor][0], populacao[melhor][1]);
     }
 
     fclose(arquivoinput);
