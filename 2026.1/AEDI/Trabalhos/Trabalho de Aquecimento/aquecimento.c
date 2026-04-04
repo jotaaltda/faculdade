@@ -5,7 +5,8 @@
 
 // Defines ==================================================================================================
 
-#define MAX 1000
+#define MAXPONTOS 1000
+#define MAXPOPULACAO 1000
 
 // Variáveis globais e protótipos ===========================================================================
 
@@ -14,8 +15,10 @@ FILE *arquivooutput;
 
 int n, m, G;
 float x, y;
+float a, b;
 
-float pontos[MAX][2];
+float pontos[MAXPONTOS][2];
+float populacao[MAXPOPULACAO][2];
 
 // Função main ==============================================================================================
 
@@ -42,23 +45,45 @@ int main()
 
     fscanf(arquivoinput, "%d %d %d", &n, &m, &G);
 
-    if (n > MAX)
+    if (n > MAXPONTOS)
     {
 
         fprintf(arquivooutput, "Digite um n menor que 1000!");
         exit(1);
     }
+    else if (m > MAXPOPULACAO)
+    {
+
+        fprintf(arquivooutput, "Digite um m menor que 1000!");
+        exit(1);
+    }
+
+    printf("\nPontos ================================\n\n");
 
     for (int i = 0; i < n; i++)
     {
 
-        x = (float)rand() / RAND_MAX;
-        y = (float)rand() / RAND_MAX;
+        x = -10 + 20 * ((float)rand() / RAND_MAX);
+        y = -10 + 20 * ((float)rand() / RAND_MAX);
 
         pontos[i][0] = x;
         pontos[i][1] = y;
 
-        printf("%f %f\n", pontos[i][0], pontos[i][1]);
+        printf("%.03f %.03f\n", pontos[i][0], pontos[i][1]);
+    }
+
+    printf("\nPopulacao ================================\n\n");
+
+    for (int j = 0; j < m; j++)
+    {
+
+        a = -10 + 20 * ((float)rand() / RAND_MAX);
+        b = -10 + 20 * ((float)rand() / RAND_MAX);
+
+        populacao[j][0] = a;
+        populacao[j][1] = b;
+
+        printf("Individuo %d: (%.03f, %.03f)\n", j + 1, populacao[j][0], populacao[j][1]);
     }
 
     fclose(arquivoinput);
