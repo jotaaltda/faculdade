@@ -20,6 +20,7 @@ int pai1, pai2;
 float x, y;
 float a, b;
 float filho1, filho2;
+float deltaA, deltaB;
 
 float pontos[MAXPONTOS][2];
 float populacao[MAXPOPULACAO][2];
@@ -143,7 +144,7 @@ int main()
         for (int i = 0; i < metade; i++)
         {
             int individuo = melhores[i];
-            printf("Individuo %d: Fitness = %.4f\n", individuo + 1, fitness[individuo]);
+            printf("Individuo %d: Fitness = %f\n", individuo + 1, fitness[individuo]);
         }
 
         for (int i = 0; i < metade; i++)
@@ -154,6 +155,12 @@ int main()
 
             filho1 = (populacao[melhores[pai1]][0] + populacao[melhores[pai2]][0]) / 2;
             filho2 = (populacao[melhores[pai1]][1] + populacao[melhores[pai2]][1]) / 2;
+
+            deltaA = -0.5 + ((float)rand() / RAND_MAX);
+            deltaB = -0.5 + ((float)rand() / RAND_MAX);
+
+            filho1 += deltaA;
+            filho2 += deltaB;
 
             populacao[metade + i][0] = filho1;
             populacao[metade + i][1] = filho2;
