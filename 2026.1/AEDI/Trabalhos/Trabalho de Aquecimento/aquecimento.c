@@ -14,22 +14,18 @@ FILE *arquivoinput;
 FILE *arquivooutput;
 
 int n, m, G;
-int melhor1 = -1, melhor2 = -1, pior = 0;
-int pai1, pai2;
+int melhor1, melhor2, pior;
 
 float x, y;
 float a, b;
 float filho1, filho2;
-float deltaA, deltaB;
-float melhorfit1 = -1.0, melhorfit2 = -1.0, piorfit = 1e18;
+float melhorfit1, melhorfit2, piorfit;
 float melhor, melhorfit, melhorerro;
 
 float pontos[MAXPONTOS][2];
 float populacao[MAXPOPULACAO][2];
 
 float fitness[MAXPOPULACAO];
-
-int melhores[MAXPOPULACAO];
 
 float calcularerro(float a, float b, int n, float pontos[][2]);
 
@@ -113,6 +109,13 @@ int main()
     for (int gen = 0; gen < G; gen++)
     {
 
+        melhor1 = -1;
+        melhor2 = -1;
+        pior = 0;
+        melhorfit1 = -1.0;
+        melhorfit2 = -1.0;
+        piorfit = 1e18;
+
         for (int j = 0; j < m; j++)
         {
 
@@ -120,13 +123,13 @@ int main()
             {
                 melhorfit2 = melhorfit1;
                 melhor2 = melhor1;
-                melhor1 = fitness[j];
+                melhorfit1 = fitness[j];
                 melhor1 = j;
             }
             else if (fitness[j] > melhorfit2)
             {
                 melhorfit2 = fitness[j];
-                melhor1 = j;
+                melhor2 = j;
             }
 
             if (fitness[j] < piorfit)
