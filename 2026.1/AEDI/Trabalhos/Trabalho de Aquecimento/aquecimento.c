@@ -14,11 +14,16 @@ FILE *arquivoinput;
 FILE *arquivooutput;
 
 int n, m, G;
+
 float x, y;
 float a, b;
 
 float pontos[MAXPONTOS][2];
 float populacao[MAXPOPULACAO][2];
+
+float fitness[MAXPOPULACAO];
+
+float calcularerro(float a, float b, int n, float pontos[][2]);
 
 // Função main ==============================================================================================
 
@@ -90,4 +95,22 @@ int main()
     fclose(arquivooutput);
 
     return 0;
+}
+
+// Demais funções ===========================================================================================
+
+float calcularerro(float a, float b, int n, float pontos[][2])
+{
+
+    float soma = 0;
+    float estimado, erro;
+
+    for (int k = 0; k < n; k++)
+    {
+        estimado = a * pontos[k][0] + b;
+        erro = estimado - pontos[k][1];
+        soma += erro * erro;
+    }
+
+    return soma / n;
 }
