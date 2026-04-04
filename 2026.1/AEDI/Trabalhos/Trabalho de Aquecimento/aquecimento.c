@@ -14,17 +14,15 @@ FILE *arquivoinput;
 FILE *arquivooutput;
 
 int n, m, G;
-int melhor1, melhor2, pior;
+int melhor, melhor1, melhor2, pior;
 
 float x, y;
 float a, b;
-float filho1, filho2;
 float melhorfit1, melhorfit2, piorfit;
-float melhor, melhorfit, melhorerro;
+float melhorfit, melhorerro;
 
 float pontos[MAXPONTOS][2];
 float populacao[MAXPOPULACAO][2];
-
 float fitness[MAXPOPULACAO];
 
 float calcularerro(float a, float b, int n, float pontos[][2]);
@@ -109,8 +107,8 @@ int main()
     for (int gen = 0; gen < G; gen++)
     {
 
-        melhor1 = -1;
-        melhor2 = -1;
+        melhor1 = 0;
+        melhor2 = 0;
         pior = 0;
         melhorfit1 = -1.0;
         melhorfit2 = -1.0;
@@ -155,24 +153,20 @@ int main()
 
         populacao[pior][0] = filhoA;
         populacao[pior][1] = filhoB;
+        fitness[pior] = 1.0 / (calcularerro(filhoA, filhoB, n, pontos) + 0.0001);
 
-        fitness[pior] = 1.0 / (calcularerro(populacao[pior][0], populacao[pior][1], n, pontos) + 0.0001);
-
-        melhor = melhor1;
-        melhorfit = melhorfit1;
-
-        if (fitness[pior] > melhorfit)
+        int vencedor = melhor1;
+        if (fitness[pior] > fitness[melhor1])
         {
-            melhor = pior;
-            melhorfit = fitness[pior];
+            vencedor = pior;
         }
 
-        melhorerro = calcularerro(populacao[melhor][0], populacao[melhor][1], n, pontos);
+        float erroVencedor = calcularerro(populacao[vencedor][0], populacao[vencedor][1], n, pontos);
 
         fprintf(arquivooutput, "Geração %d:\n", gen + 1);
-        fprintf(arquivooutput, "Fitness: %f\n", melhorfit);
-        fprintf(arquivooutput, "Erro: %f\n", melhorerro);
-        fprintf(arquivooutput, "a: %f, b: %f\n\n", populacao[melhor][0], populacao[melhor][1]);
+        fprintf(arquivooutput, "Fitness: %f\n", fitness[vencedor]);
+        fprintf(arquivooutput, "Erro: %f\n", erroVencedor);
+        fprintf(arquivooutput, "a: %f, b: %f\n\n", populacao[vencedor][0], populacao[vencedor][1]);
     }
 
     fclose(arquivoinput);
