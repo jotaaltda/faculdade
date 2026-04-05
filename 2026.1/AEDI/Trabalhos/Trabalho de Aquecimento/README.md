@@ -63,6 +63,7 @@ O arquivo de entrada deve conter apenas **uma linha** com três valores inteiros
 
 ## 📂 Organização do Repositório
 
+```
 ├── src/
 │   └── aquecimento.c   # Código-fonte principal em C
 ├── build/              # Binários e objetos (gerado pelo Makefile)
@@ -70,6 +71,7 @@ O arquivo de entrada deve conter apenas **uma linha** com três valores inteiros
 ├── input.dat           # Parâmetros e dados de entrada
 ├── output.dat          # Log de evolução gerado pelo programa
 └── README.md           # Documentação técnica (esta página)
+```
 
 ---
 
