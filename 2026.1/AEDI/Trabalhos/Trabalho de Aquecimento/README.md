@@ -30,7 +30,7 @@ O algoritmo utiliza o modelo **Steady-State**, focado em eficiência computacion
 ### 3. Análise de Complexidade
 O algoritmo foi projetado para ser altamente escalável:
 * **Por Geração:** _O(n + m)_
-* **Algoritmo Completo:** _O(G \cdot (n + m))_  
+* **Algoritmo Completo:** $O(G \cdot (n + m))$  
 *(Onde _G_ = gerações, _n_ = pontos, _m_ = população)*
 
 ---
