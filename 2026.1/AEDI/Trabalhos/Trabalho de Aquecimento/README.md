@@ -19,7 +19,7 @@ O algoritmo utiliza o modelo **Steady-State**, focado em eficiência computacion
 
 ### 2. Ciclo Evolutivo
 * **Avaliação:** O fitness é calculado como o inverso do Erro Quadrático Médio (MSE):  
-  __Fitness = \frac{1}{MSE + 0.0001}__
+  $$Fitness = \frac{1}{MSE + 0.0001}$$
 * **Seleção:** Implementada via **busca linear (_O(m)_)** para identificar os dois melhores indivíduos (pais) e o pior (substituição), evitando o custo de ordenação total.
 * **Crossover:** O descendente herda o gene _a_ do primeiro pai e o gene _b_ do segundo pai.
 * **Mutação:** Aplicação de uma variação aleatória _\delta \in [-5, 5]_ em um dos genes escolhido via `rand()`.
