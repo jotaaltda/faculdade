@@ -12,7 +12,6 @@
             <legend> Dados Pessoais: </legend>
 
             <table>
-
                 <tr>
                     <td align="right"> <label id="Nome" for="Nome"> Nome completo: </label> </td>
                     <td colspan="4"> <input type="text" name="Nome" maxlength="150" size="38"> </td>
@@ -52,6 +51,112 @@
                 </tr>
             </table>
         </fieldset>
+
+        <fieldset style="background-color: aquamarine; width: 50rem">
+            <legend> Imagem de Perfil: </legend>
+
+            <table>
+                <tr>
+                    <td> <input type="file" name="arquivo"> </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <fieldset style="background-color: aquamarine; width: 50rem">
+            <legend> Informações Adicionais: </legend>
+
+            <table>
+                <tr>
+                    <label id="comentarios" for="comentarios"> Comentários: </label>
+                    <td> <textarea name="resumo" cols="100" rows="10"> </textarea> </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <fieldset style="background-color: aquamarine; width: 50rem">
+            <legend> Formação Principal: </legend>
+
+            <tr>
+                <td>
+                    <select name="formacoes">
+                        <option value="EM"> Ensino Médio </option>
+                        <option value="S"> Superior </option>
+                        <option value="PG"> Pós Graduado </option>
+                        <option value="M"> Mestrado </option>
+                        <option value="D"> Doutorado </option>
+                    </select>
+                </td>
+            </tr>
+        </fieldset>
+
+        <fieldset style="background-color: aquamarine; width: 50rem">
+            <legend> Formação Complementar: </legend>
+
+            <tr>
+                <td>
+                    <select name="formacoes2" multiple>
+                        <option value="C"> Cursos </option>
+                        <option value="I"> Intercâmbios </option>
+                        <option value="IS"> Idiomas Secundários </option>
+                        <option value="CO"> Certificações Oficiais </option>
+                    </select>
+                </td>
+            </tr>
+        </fieldset>
+
+        <fieldset style="background-color: aquamarine; width: 50rem">
+            <legend> Site Pessoal: </legend>
+
+            <input type="url" name="site" size="50">
+        </fieldset>
+
+        <fieldset style="background-color: aquamarine; width: 50rem">
+            <legend> Disponibilidade: </legend>
+
+            <table>
+
+                <tr>
+                    <td align="right"> <label id="data" for="data"> Data para Início: </label> </td>
+                    <td> <input type="date" name="data"> </td>
+                </tr>
+                <tr>
+                    <td align="right"> <label id="data" for="data"> Data para Término: </label> </td>
+                    <td> <input type="date" name="data"> </td>
+                </tr>
+                <tr>
+                    <td align="right"> <label id="horario" for="horario"> Horário Inicial: </label> </td>
+                    <td> <input type="time" name="horario"> </td>
+                </tr>
+                <tr>
+                    <td align="right"> <label id="horario" for="horario"> Horário Final: </label> </td>
+                    <td> <input type="time" name="horario"> </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <fieldset style="background-color: aquamarine; width: 50rem">
+            <legend> Segurança e personalização: </legend>
+
+            <table>
+                <tr>
+                    <td align="right"> <label id="Senha" for="Senha"> Senha: </label> </td>
+                    <td> <input type="password" name="Senha" maxlength="15"> </td>
+                </tr>
+                <tr>
+                    <td align="right"> <label id="Senha" for="Senha"> Confirmação: </label> </td>
+                    <td> <input type="password" name="Senha" maxlength="15"> </td>
+                </tr>
+
+                <tr>
+                    <td align="right"> <label id="cor" for="cor"> Cor preferencial do tema: </label> </td>
+                    <td> <input type="color" name="cor"> </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <br>
+        <input type="submit" name="Cadastrar" value="Cadastrar">
+        <input type="reset" name="Limpar" value="Limpar Formulário"> <br>
 
     </form>
 </body>
