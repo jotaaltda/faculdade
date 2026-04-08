@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title> Atividade - Formulários! </title>
+    <meta charset="UTF-8">
+</head>
+
+<body style="background-color: beige">
+    <form name="Cadastro" method="post" action="script.js" autocomplete="on">
+
+        <fieldset style="background-color: aquamarine; width: 50rem">
+            <legend> Dados Pessoais: </legend>
+
+            <table>
+
+                <tr>
+                    <td align="right"> <label id="Nome" for="Nome"> Nome completo: </label> </td>
+                    <td colspan="4"> <input type="text" name="Nome" maxlength="150" size="38"> </td>
+                </tr>
+                <tr>
+                    <td align="right"> <label id="email" for="email"> E-mail: </label> </td>
+                    <td> <input type="email" name="email" maxlength="100"> </td>
+                    <td align="right"> <label id="Idade" for="Idade"> Idade: </label> </td>
+                    <td> <input type="number" name="Idade" maxlength="8" min="0" max="120"> </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <fieldset style="background-color: aquamarine; width: 50rem">
+            <legend> Preferências da Conta: </legend>
+
+            <table>
+
+                <tr>
+                    <td align="right"> <label id="linguagem" for="linguagem"> Linguagem de programação: </label> </td>
+                    <td>
+                        <input type="radio" name="linguagem" value="P"> Python
+                        <input type="radio" name="linguagem" value="J"> JavaScript
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right"> <label id="habilidades" for="habilidades"> Habilidades: </label> </td>
+                    <td>
+                        <input type="checkbox" name="habilidades" value="D"> Desenvolvedor Web <br>
+                        <input type="checkbox" name="habilidades" value="C"> Cientista de Dados
+                    </td>
+
+                    <td>
+                        <input type="checkbox" name="habilidades" value="P"> Programador Mobile <br>
+                        <input type="checkbox" name="habilidades" value="O"> Outros
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+    </form>
+</body>
+
+</html>
