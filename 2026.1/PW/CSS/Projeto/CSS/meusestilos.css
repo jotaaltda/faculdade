@@ -1,0 +1,17 @@
+h1 {
+    color: navy;
+    font-size: 3.0rem;
+    text-align: center;
+}
+
+p{
+color: tomato;
+font-size: 1.5rem;
+text-align: right;
+}
+
+div{
+color: tomato;
+font-size: 1.5rem;
+text-align: right;
+}
