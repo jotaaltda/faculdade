@@ -1,0 +1,25 @@
+p {
+
+    color: blue;
+
+}
+
+.Destaque {
+
+    color: red;
+    font-weight: bold;
+
+}
+
+#TITULO_PRINCIPAL {
+
+    color: green;
+    font-size: 32px;
+
+}
+
+h1, h2{
+
+color: orange;
+
+}
