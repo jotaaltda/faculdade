@@ -1,0 +1,49 @@
+#TITULO_SISTEMA {
+
+    text-align: center;
+    color: blue;
+
+}
+
+.Lista {
+
+    color: gray;
+
+}
+
+.Nomes {
+
+    font-size: 25px;
+
+}
+
+.Destaque {
+
+    color: red;
+    font-weight: bold;
+
+}
+
+.Aprovado {
+
+    color: green;
+
+}
+
+.Reprovado {
+
+    color: red;
+
+}
+
+.texto {
+
+    color: blue;
+
+}
+
+#TESTE {
+
+    color: orange;
+
+}
