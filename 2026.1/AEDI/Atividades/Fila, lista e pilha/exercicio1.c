@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <windows.h>
 
 int main()
 {
@@ -27,12 +28,13 @@ int main()
         for (int k = 0; k < indice; k++)
         {
 
-            subvetor[k] = rand() % (10 - (-10) + 1) + (-10);
+            subvetor[k] = vetor[k];
 
             printf("%d ", subvetor[k]);
         }
 
         printf("\n");
+        Sleep(100);
     }
 
     return 0;
