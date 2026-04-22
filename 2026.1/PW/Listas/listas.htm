@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title> Listas! </title>
+
+    <style>
+        ul {
+
+            list-style-type: circle;
+            list-style-image: url('./icone.png')
+        }
+
+        ol {
+
+            color: blue;
+
+        }
+
+        li:before {
+
+            content: counters('.')'';
+            counter-increment: item;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <ol type="I">
+        <li> Coca-cola
+            <ol type="1">
+                <li> Açucar </li>
+                <li> Caramelo </li>
+                <li> Cafeína </li>
+            </ol>
+        </li>
+
+        <li> Sprite
+            <ol type="1">
+                <li> Limão </li>
+                <li> Açucar </li>
+                <li> Água </li>
+            </ol>
+        </li>
+    </ol>
+
+    <ol type="I">
+        <li> Roupas
+            <ol type="i">
+                <li> Açucar </li>
+                <li> Caramelo </li>
+                <li> Cafeína </li>
+            </ol>
+        </li>
+
+        <li> Calçados
+            <ol type="i">
+                <li> Limão </li>
+                <li> Açucar </li>
+                <li> Água </li>
+            </ol>
+        </li>
+    </ol>
+
+</body>
+
+</html>
